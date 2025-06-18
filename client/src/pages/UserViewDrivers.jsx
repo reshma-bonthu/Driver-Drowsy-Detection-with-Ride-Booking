@@ -74,7 +74,7 @@ const UserViewDrivers = () => {
     const user = JSON.parse(localStorage.getItem("user")) || { name: "", phone: "" };
     setCurrentUser(user);
     axios
-      .get("http://localhost:5000/api/driver")
+      .get("https://driver-drowsy-detection-with-ride-booking.onrender.com/api/driver")
       .then((res) => {
         setDrivers(res.data);
       })
@@ -111,7 +111,7 @@ const UserViewDrivers = () => {
     const bookedByPhone = currentUser.phone;
 
     try {
-      await axios.post("http://localhost:5000/api/book/book-now", {
+      await axios.post("https://driver-drowsy-detection-with-ride-booking.onrender.com/api/book/book-now", {
         phone,
         driverUsername,
         bookedByName,
@@ -189,7 +189,7 @@ const UserViewDrivers = () => {
             >
               <div className="flex flex-col items-center w-full md:w-1/3 mb-4 md:mb-0 space-y-2">
                 <img
-                  src={`http://localhost:5000/${driver.profilePicture}`}
+                  src={`https://driver-drowsy-detection-with-ride-booking.onrender.com/${driver.profilePicture}`}
                   alt="Profile"
                   className="w-24 h-24 rounded-full object-cover"
                 />
