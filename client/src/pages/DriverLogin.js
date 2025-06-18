@@ -36,7 +36,7 @@ const DriverLogin = () => {
     }
   
     try {
-      const res = await fetch("http://localhost:5000/api/driver/login", {
+      const res = await fetch("https://driver-drowsy-detection-with-ride-booking.onrender.com/api/driver/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
@@ -142,7 +142,7 @@ const DriverLogin = () => {
       formData.append("active",active);
       formData.append("yawn",yawn);
   
-      const response = await fetch("http://localhost:5000/api/driver/signup", {
+      const response = await fetch("https://driver-drowsy-detection-with-ride-booking.onrender.com/api/driver/signup", {
         method: "POST",
         body: formData,
       });
