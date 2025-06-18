@@ -15,7 +15,7 @@ const DriverLanding = () => {
       setDriver(user);
   
       // Fetch detection stats and merge them into the driver state
-      fetch(`http://localhost:5000/api/driver/${user.id}`)
+      fetch(`https://driver-drowsy-detection-with-ride-booking.onrender.com/api/driver/${user.id}`)
         .then((res) => res.json())
         .then((stats) => {
           setDriver((prev) => ({ ...prev, ...stats }));
@@ -41,7 +41,7 @@ const DriverLanding = () => {
     }
     const userObj = JSON.parse(user);
 
-    const res = await fetch("http://localhost:5000/api/start-detection", {
+    const res = await fetch("https://driver-drowsy-detection-with-ride-booking.onrender.com/api/start-detection", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
