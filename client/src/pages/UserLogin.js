@@ -29,7 +29,7 @@ const UserLogin = () => {
   const { username, password } = signInData;
 
   if (username && password) {
-    fetch("http://localhost:5000/api/user/signin", {
+    fetch("https://driver-drowsy-detection-with-ride-booking.onrender.com/api/user/signin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),
@@ -87,7 +87,7 @@ const UserLogin = () => {
       return;
     }
       if (password === confirmPassword) {
-        fetch("http://localhost:5000/api/user/signup", {
+        fetch("https://driver-drowsy-detection-with-ride-booking.onrender.com/api/user/signup", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name, username, email, phone, password }),
