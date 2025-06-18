@@ -94,7 +94,7 @@ const DriverProfile = () => {
       setDriver(user);
       setFormData(user);
 
-      fetch(`http://localhost:5000/api/detections/${user.id}`)
+      fetch(`https://driver-drowsy-detection-with-ride-booking.onrender.com/api/detections/${user.id}`)
         .then((res) => res.json())
         .then((stats) => {
           setDriver((prev) => ({ ...prev, ...stats }));
@@ -109,7 +109,7 @@ const DriverProfile = () => {
         })
         .catch((err) => console.error("Failed to fetch trip count", err));
 
-      fetch(`http://localhost:5000/api/sessions/timelines/${user.id}`)
+      fetch(`https://driver-drowsy-detection-with-ride-booking.onrender.com/api/sessions/timelines/${user.id}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.timelines && Array.isArray(data.timelines)) {
@@ -151,7 +151,7 @@ const DriverProfile = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/driver/update/${driver.id}`,
+        `https://driver-drowsy-detection-with-ride-booking.onrender.com/api/driver/update/${driver.id}`,
         {
           method: "PUT",
           body: data,
@@ -167,7 +167,7 @@ const DriverProfile = () => {
       setEditMode(false);
     } catch (err) {
       console.log(
-        `Sending update to: http://localhost:5000/api/driver/update/${driver.id}`
+        `Sending update to: https://driver-drowsy-detection-with-ride-booking.onrender.com/api/driver/update/${driver.id}`
       );
       alert("Update failed");
     }
@@ -199,7 +199,7 @@ const DriverProfile = () => {
             <img
               src={
                 driver.profilePicture
-                  ? `http://localhost:5000/${driver.profilePicture.replace(/\\/g, "/")}`
+                  ? `https://driver-drowsy-detection-with-ride-booking.onrender.com/${driver.profilePicture.replace(/\\/g, "/")}`
                   : "/default-profile.png"
               }
               alt="Driver"
