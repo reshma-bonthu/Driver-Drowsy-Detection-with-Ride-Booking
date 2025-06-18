@@ -6,7 +6,7 @@ const AllDrivers = () => {
   useEffect(() => {
     const fetchDrivers = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/driver/");
+        const res = await fetch("https://driver-drowsy-detection-with-ride-booking.onrender.com/api/driver/");
         const data = await res.json();
         setDrivers(data);
       } catch (err) {
