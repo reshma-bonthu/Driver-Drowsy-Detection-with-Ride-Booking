@@ -7,10 +7,12 @@ import threading
 from bson.objectid import ObjectId
 from pymongo import MongoClient
 import sys
-
+import os
+import urllib.request
 driver_id = sys.argv[1]
 
-client = MongoClient("")
+conn_string = os.getenv("CONN")  # gets the environment variable CONN
+client = MongoClient(conn_string)
 db = client["safetyOnWheels"]  # your database name
 drivers_collection = db["drivers"]
 driversessions_collection = db["driversessions"]
@@ -20,7 +22,21 @@ cap = cv2.VideoCapture(0)
 
 # Initialize the face detector and the landmark predictor
 detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor(r"C:\Users\reshm\OneDrive\Desktop\miniproject3.2\python\shape_predictor_68_face_landmarks.dat")
+def get_predictor_path():
+    file_path = "shape_predictor_68_face_landmarks.dat"
+    
+    # Check if the file already exists
+    if not os.path.exists(file_path):
+        print("Downloading shape_predictor_68_face_landmarks.dat...")
+        # Your Google Drive direct download link
+        url = os.getenv("DAT")
+        urllib.request.urlretrieve(url, file_path)
+        print("Download completed.")
+    
+    return file_path
+
+# Now use the path
+predictor = dlib.shape_predictor(get_predictor_path())
 # Status markers
 sleep = 0
 drowsy = 0
