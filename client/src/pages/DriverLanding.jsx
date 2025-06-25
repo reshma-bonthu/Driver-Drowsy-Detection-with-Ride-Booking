@@ -33,9 +33,18 @@ const DriverLanding = () => {
   };
 
   const handleStartDetection = async () => {
-  window.open("http://localhost:5000/start-detection", "_blank");
-};
+  try {
+    const user = localStorage.getItem("user");
+    if (!user) {
+      console.error("User not logged in");
+      return;
+    }
+    const userObj = JSON.parse(user);
+    const driverid = userObj.id;
 
+    const url = http://localhost:5000/start-detection?driverId=${encodeURIComponent(driverId)};
+  window.open(url, "_blank");
+};
 
 
 
