@@ -43,7 +43,10 @@ const DriverLanding = () => {
     const driverId = userObj.id;
 
     const url = `http://localhost:5000/start-detection?driverId=${encodeURIComponent(driverId)}`;
-  window.open(url, "_blank");
+    window.open(url, "_blank");
+  } catch (err) {
+    console.error("Error starting detection:", err);
+  }
 };
 
 
