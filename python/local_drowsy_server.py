@@ -1,8 +1,8 @@
 from flask import Flask, request, jsonify
 import subprocess
-
-app = Flask(_name_)
-
+from flask_cors import CORS
+app = Flask(__name__)
+CORS(app)
 @app.route('/start-detection', methods=['POST'])
 def start_detection():
     data = request.get_json()
@@ -16,5 +16,7 @@ def start_detection():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-if _name_ == '_main_':
-    app.run(host="localhost", port=5000)
+if __name__ == '__main__':
+    print("🚀 Flask server is running at: http://localhost:5000")
+    print("📡 Waiting for POST requests at /start-detection")
+    app.run(host="0.0.0.0", port=5000)
