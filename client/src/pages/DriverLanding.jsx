@@ -41,7 +41,7 @@ const DriverLanding = () => {
     }
     const userObj = JSON.parse(user);
 
-    const res = await fetch("https://localhost:5000/start-detection", {
+    const res = await fetch("https://localhost:5000/api/start-detection", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
