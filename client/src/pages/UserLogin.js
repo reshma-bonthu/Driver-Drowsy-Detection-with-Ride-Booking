@@ -69,7 +69,7 @@ const UserLogin = () => {
     // Basic regex validations
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^[0-9]{10}$/;
-    const passwordRegex = /^(?=.[a-z])(?=.[A-Z])(?=.*\d).{6,}$/;
+    
 
     if (name && username && email && phone && password && confirmPassword) {
       if (!emailRegex.test(email)) {
@@ -82,10 +82,7 @@ const UserLogin = () => {
       return;
     }
 
-    if (!passwordRegex.test(password)) {
-      alert("Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, and one number.");
-      return;
-    }
+    
       if (password === confirmPassword) {
         fetch("https://driver-drowsy-detection-with-ride-booking.onrender.com/api/user/signup", {
           method: "POST",
