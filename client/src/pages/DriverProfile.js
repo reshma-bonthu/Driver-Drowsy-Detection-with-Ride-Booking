@@ -101,7 +101,7 @@ const DriverProfile = () => {
         })
         .catch((err) => console.error("Failed to fetch stats", err));
 
-      fetch(`http://localhost:5000/api/sessions/tripCount/${user.id}`)
+      fetch(`https://driver-drowsy-detection-with-ride-booking.onrender.com/api/sessions/tripCount/${user.id}`)
         .then((res) => res.json())
         .then((data) => {
           console.log("Trip Count API response:", data);
