@@ -33,27 +33,7 @@ const DriverLanding = () => {
   };
 
   const handleStartDetection = async () => {
-  try {
-    const user = localStorage.getItem("user");
-    if (!user) {
-      console.error("User not logged in");
-      return;
-    }
-    const userObj = JSON.parse(user);
-
-    const res = await fetch("http://localhost:5000/start-detection", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ driverId: userObj.id || userObj.username }),
-    });
-
-    const data = await res.json();
-    console.log(data);
-  } catch (err) {
-    console.error("Error starting detection:", err);
-  }
+  window.open("http://localhost:5000/start-detection", "_blank");
 };
 
 
