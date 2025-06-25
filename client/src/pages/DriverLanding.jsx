@@ -41,7 +41,7 @@ const DriverLanding = () => {
     }
     const userObj = JSON.parse(user);
 
-    const res = await fetch("https://driver-drowsy-detection-with-ride-booking.onrender.com/api/start-detection", {
+    const res = await fetch("https://localhost:5000/start-detection", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
