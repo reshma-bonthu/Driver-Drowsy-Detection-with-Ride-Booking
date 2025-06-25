@@ -40,7 +40,7 @@ const DriverLanding = () => {
       return;
     }
     const userObj = JSON.parse(user);
-    const driverid = userObj.id;
+    const driverId = userObj.id;
 
     const url = http://localhost:5000/start-detection?driverId=${encodeURIComponent(driverId)};
   window.open(url, "_blank");
