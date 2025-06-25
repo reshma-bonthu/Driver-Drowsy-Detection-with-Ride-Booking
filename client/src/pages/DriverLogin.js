@@ -82,7 +82,7 @@ const DriverLogin = () => {
       // Basic regex validations
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^[0-9]{10}$/;
-    const passwordRegex = /^(?=.[a-z])(?=.[A-Z])(?=.*\d).{6,}$/;
+    
   
     const missingFields = [];
   
@@ -114,11 +114,7 @@ const DriverLogin = () => {
       return;
     }
 
-    if (!passwordRegex.test(password)) {
-      alert("Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, and one number.");
-      return;
-    }
-  
+    
     if (password !== confirmPassword) {
       alert("Passwords do not match.");
       return;
